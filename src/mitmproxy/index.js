@@ -22,7 +22,7 @@ module.exports = {
     }) {
 
         // Don't reject unauthorized
-        process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
+        process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
         if (!caCertPath && !caKeyPath) {
             var rs = this.createCA();
@@ -77,8 +77,9 @@ module.exports = {
                 upgradeHandler(req, socket, head, ssl);
             });
         });
+        return server;
     },
     createCA(caBasePath = config.getDefaultCABasePath()) {
         return tlsUtils.initCA(caBasePath);
     }
-}
+};
